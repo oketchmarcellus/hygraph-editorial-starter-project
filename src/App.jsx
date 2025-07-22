@@ -7,7 +7,7 @@ import './App.css'
 
 
 const GET_DATA = gql`
-  query findPage($pageslug: String) {
+query findPage($pageslug: String) {
   page(where: {slug: $pageslug}) {
     id
     slug
@@ -25,6 +25,32 @@ const GET_DATA = gql`
     }
     createdBy {
       name
+    }
+    serviceSection {
+      ... on PageSection {
+        sectionContents {
+          ... on ServiceCard {
+            id
+            serviceFaIcon
+            serviceItemDescription
+            serviceItemTitle
+          }
+        }
+        sectionTitle
+      }
+    }
+    featuredBlogPostSection {
+      ... on PageSection {
+        id
+        sectionContents {
+          ... on BlogPostItem {
+            id
+            featuredBlogPostTitle
+            featuredPostExcerpt
+          }
+        }
+        sectionTitle
+      }
     }
   }
 }
