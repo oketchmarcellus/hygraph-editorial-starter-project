@@ -1,4 +1,4 @@
-# React + Vite + Apollo Client + QraphQL
+# React + Vite + Apollo Client + QraphQL + HygraphCMS
 
 This template provides a minimal setup to get React working with QraphQL in Vite with HMR and some ESLint rules.
 
