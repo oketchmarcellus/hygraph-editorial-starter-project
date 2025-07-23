@@ -72,7 +72,7 @@ function App() {
   const featureImageUrl = data.page.featureSection.featurePostImage.url; // Get the feature image URL
   const serviceSection = data.page.serviceSection; // Get the service section content
   const serviceSectionTitle = data.page.serviceSection.sectionTitle; // Get the service section title
-  const serviceItems = data.page.serviceSection.sectionContents; // Get the service items
+  const services = data.page.serviceSection.sectionContents; // Get the service items
   const featuredblogsectiontitle = data.page.featuredBlogPostSection.sectionTitle; // Get the featured blog post section title
   const featuredBlogPostSection = data.page.featuredBlogPostSection; // Get the featured blog post section content
   const featuredBlogPosts = data.page.featuredBlogPostSection.sectionContents; // Get the featured blog posts
@@ -82,7 +82,7 @@ function App() {
     <>
 			<div id="wrapper">
           <Landing pageTitle={pageTitle} creatorName={creatorName} featureImageUrl={featureImageUrl} 
-          featureContent={featureContent} serviceSection={serviceSection} serviceSectionTitle={serviceSectionTitle}/>
+          featureContent={featureContent} serviceSection={serviceSection} serviceSectionTitle={serviceSectionTitle} services={services}/>
           <Sidebar  pageTitle={pageTitle} />
       </div>
     </>
