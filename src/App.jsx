@@ -45,6 +45,9 @@ query findPage($pageslug: String) {
         sectionContents {
           ... on BlogPostItem {
             id
+            featuredBlogpostImage {
+              url
+            }
             featuredBlogPostTitle
             featuredPostExcerpt
           }
@@ -82,7 +85,8 @@ function App() {
     <>
 			<div id="wrapper">
           <Landing pageTitle={pageTitle} creatorName={creatorName} featureImageUrl={featureImageUrl} 
-          featureContent={featureContent} serviceSection={serviceSection} serviceSectionTitle={serviceSectionTitle} services={services}/>
+          featureContent={featureContent} serviceSection={serviceSection} serviceSectionTitle={serviceSectionTitle} 
+          services={services} featuredblogsectiontitle={featuredblogsectiontitle} featuredBlogPosts={featuredBlogPosts} />
           <Sidebar  pageTitle={pageTitle} />
       </div>
     </>
