@@ -56,12 +56,16 @@ const Landing = ({ pageTitle, creatorName, featureImageUrl, featureContent, serv
                     <div className="posts">
                         {featuredBlogPosts.map(featuredBlogPost => (
                             <article key={featuredBlogPost.id}>
-                                <a href="#" className="image"><img src={featuredBlogPost.featuredBlogpostImage.url} alt="" /></a>
-                                <h3>{featuredBlogPost.featuredBlogPostTitle}</h3>
-                                <p>{featuredBlogPost.featuredPostExcerpt}</p>
-                                <ul className="actions">
-                                    <li><a href="#" className="button">More</a></li>
-                                </ul>
+                            <a href="#" className="image">
+                                {featuredBlogPost.featuredBlogpostImage?.url && (
+                                    <img src={featuredBlogPost.featuredBlogpostImage.url} alt="" />
+                                )}
+                            </a>
+                            <h3>{featuredBlogPost.featuredBlogPostTitle}</h3>
+                            <p>{featuredBlogPost.featuredPostExcerpt}</p>
+                            <ul className="actions">
+                                <li><a href="#" className="button">More</a></li>
+                            </ul>
                             </article>
                         ))}
                     </div>

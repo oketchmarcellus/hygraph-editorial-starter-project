@@ -79,6 +79,7 @@ function App() {
   const featuredblogsectiontitle = data.page.featuredBlogPostSection.sectionTitle; // Get the featured blog post section title
   const featuredBlogPostSection = data.page.featuredBlogPostSection; // Get the featured blog post section content
   const featuredBlogPosts = data.page.featuredBlogPostSection.sectionContents; // Get the featured blog posts
+
   // You can now use these variables in your components or pass them as props  
 
   return (
