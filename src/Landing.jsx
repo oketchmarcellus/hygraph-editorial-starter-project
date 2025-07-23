@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client';
 import React, { StrictMode } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
-const Landing = ({ pageTitle, creatorName, featureImageUrl, featureContent}) => {
+const Landing = ({ pageTitle, creatorName, featureImageUrl, featureContent, serviceSectionTitle}) => {
     return (
     <>
         {/* Main content */}
@@ -34,7 +34,7 @@ const Landing = ({ pageTitle, creatorName, featureImageUrl, featureContent}) => 
                 {/* <!-- Section --> */}
                 <section>
                     <header className="major">
-                        <h2>Erat lacinia</h2>
+                        <h2>{serviceSectionTitle}</h2>
                     </header>
                     <div className="features">
                         <article>

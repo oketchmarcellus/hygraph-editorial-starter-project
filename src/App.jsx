@@ -69,12 +69,20 @@ function App() {
   const creatorName = data.page.createdBy.name; // Get the creator's name from the query result
   const featureSection = data.page.featureSection; // Get the feature section content
   const featureContent = data.page.featureSection.featuredPostContent.html; // Get the HTML content of the feature section
-  const featureImageUrl = data.page.featureSection.featurePostImage.url; // Get the feature image URL  
+  const featureImageUrl = data.page.featureSection.featurePostImage.url; // Get the feature image URL
+  const serviceSection = data.page.serviceSection; // Get the service section content
+  const serviceSectionTitle = data.page.serviceSection.sectionTitle; // Get the service section title
+  const serviceItems = data.page.serviceSection.sectionContents; // Get the service items
+  const featuredblogsectiontitle = data.page.featuredBlogPostSection.sectionTitle; // Get the featured blog post section title
+  const featuredBlogPostSection = data.page.featuredBlogPostSection; // Get the featured blog post section content
+  const featuredBlogPosts = data.page.featuredBlogPostSection.sectionContents; // Get the featured blog posts
+  // You can now use these variables in your components or pass them as props  
 
   return (
     <>
 			<div id="wrapper">
-          <Landing pageTitle={pageTitle} creatorName={creatorName} featureImageUrl={featureImageUrl} featureContent={featureContent}/>
+          <Landing pageTitle={pageTitle} creatorName={creatorName} featureImageUrl={featureImageUrl} 
+          featureContent={featureContent} serviceSection={serviceSection} serviceSectionTitle={serviceSectionTitle}/>
           <Sidebar  pageTitle={pageTitle} />
       </div>
     </>
