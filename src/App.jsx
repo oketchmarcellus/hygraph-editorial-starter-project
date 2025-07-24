@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useQuery, gql } from '@apollo/client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Header from './Header'
 import Landing from './Landing'
 import Sidebar from './Sidebar'
 import Generic from './Generic'
@@ -102,34 +103,40 @@ function App() {
   return (
           <Router>
             <div id="wrapper">
-              <Routes>
-                <Route path="/" element={
-                    <>
-                      <Landing
-                        pageTitle={pageTitle}
-                        creatorName={creatorName}
-                        featureImageUrl={featureImageUrl}
-                        featureContent={featureContent}
-                        serviceSection={serviceSection}
-                        serviceSectionTitle={serviceSectionTitle}
-                        services={services}
-                        featuredblogsectiontitle={featuredblogsectiontitle}
-                        featuredBlogPosts={featuredBlogPosts}
+              {/* Main content */}
+              <div id="main">
+                <div className="inner">
+                  <Header creatorName={creatorName} />
+                    <Routes>
+                      <Route path="/" element={
+                          <>
+                            <Landing
+                              pageTitle={pageTitle}
+                              creatorName={creatorName}
+                              featureImageUrl={featureImageUrl}
+                              featureContent={featureContent}
+                              serviceSection={serviceSection}
+                              serviceSectionTitle={serviceSectionTitle}
+                              services={services}
+                              featuredblogsectiontitle={featuredblogsectiontitle}
+                              featuredBlogPosts={featuredBlogPosts}
+                            />
+                          </>
+                        }
                       />
-                    </>
-                  }
-                />
-                <Route path="/generic" element={
-                  <Generic 
-                  postPageTitle={postPageTitle}
-                  featuredImageUrlForPost={featuredImageUrlForPost}
-                  postPageContent={postPageContent}
-                  />
-                  }
-                />
-                {/* You can add more routes here if needed */}
-              </Routes>
-              <Sidebar pageTitle={pageTitle} postTitle={postTitle}/>
+                      <Route path="/generic" element={
+                        <Generic 
+                        postPageTitle={postPageTitle}
+                        featuredImageUrlForPost={featuredImageUrlForPost}
+                        postPageContent={postPageContent}
+                        />
+                        }
+                      />
+                      {/* You can add more routes here if needed */}
+                    </Routes>
+                </div>
+              </div>
+              <Sidebar pageTitle={pageTitle} postTitle={postTitle}/>   
             </div>
           </Router>
         )
