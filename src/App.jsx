@@ -93,7 +93,9 @@ function App() {
   const featuredBlogPosts = data.homepage.featuredBlogPostSection.sectionContents; // Get the featured blog posts
   const postPageTitle = data.postPage.postTitle; // Get the post page title
   const featuredImage = data.postPage.featuredImage; // Get the featured image for the post page
+  const postTitle = data.postPage.postTitle; // Get the post title for the generic page
   const postPageContent = data.postPage.postPageContent.html; // Get the post page content
+  const featuredImageUrlForPost = data.postPage.featuredImage.url; // Get the featured image URL for the post page
 
   // You can now use these variables in your components or pass them as props  
 
@@ -117,7 +119,12 @@ function App() {
                     </>
                   }
                 />
-                <Route path="/about" element={<Generic />} />
+                <Route path="/about" element={<Generic 
+                  postPageTitle={postPageTitle}
+                  featuredImage={featuredImageUrlForPost}
+                  postPageContent={postPageContent}
+                  />}
+                />
                 {/* You can add more routes here if needed */}
               </Routes>
               <Sidebar pageTitle={pageTitle} />
