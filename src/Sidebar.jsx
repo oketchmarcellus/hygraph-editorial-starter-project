@@ -81,14 +81,14 @@ const Sidebar = ({ pageTitle, creatorName })=> {
                     <ul className="contact">
                         <li className="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
                         <li className="icon solid fa-phone">(000) 000-0000</li>
-                        <li className="icon solid fa-home">1234 Somewhere Road #8254<br />
-                        Nashville, TN 00000-0000</li>
+                        <li className="icon solid fa-home">Richland Pointe #254<br />
+                        Kamiti Rd, 001 Nrbi</li>
                     </ul>
                 </section>
 
                 {/* <!-- Footer --> */}
                 <footer id="footer">
-                    <p className="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                    <p className="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. TechStack: <a href="https://viteapolloclientgraphqlstarterproject.netlify.app/">Vite+Hygraph+React+Apollo Client</a>. Fork Starter Project: <a href="https://github.com/oketchmarcellus/hygraph-editorial-starter-project">Github</a>.</p>
                 </footer>
             </div>
         </div>
