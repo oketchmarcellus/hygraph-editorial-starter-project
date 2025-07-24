@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { useQuery, gql } from '@apollo/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Landing from './Landing';
-import Sidebar from './Sidebar';
-import Generic from './Generic';
+import { useQuery, gql } from '@apollo/client'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Landing from './Landing'
+import Sidebar from './Sidebar'
+import Generic from './Generic'
 import './App.css'
 
 
@@ -119,15 +119,17 @@ function App() {
                     </>
                   }
                 />
-                <Route path="/about" element={<Generic 
+                <Route path="/generic" element={
+                  <Generic 
                   postPageTitle={postPageTitle}
-                  featuredImage={featuredImageUrlForPost}
+                  featuredImageUrlForPost={featuredImageUrlForPost}
                   postPageContent={postPageContent}
-                  />}
+                  />
+                  }
                 />
                 {/* You can add more routes here if needed */}
               </Routes>
-              <Sidebar pageTitle={pageTitle} />
+              <Sidebar pageTitle={pageTitle} postTitle={postTitle}/>
             </div>
           </Router>
         )

@@ -1,8 +1,9 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { Link, NavLink } from 'react-router-dom';
 
-const Sidebar = ({ pageTitle, creatorName })=> {
+const Sidebar = ({ pageTitle, creatorName, postTitle })=> {
     return (
     <>
         {/* <!-- Sidebar --> */}
@@ -20,8 +21,8 @@ const Sidebar = ({ pageTitle, creatorName })=> {
                         <h2>Menu</h2>
                     </header>
                     <ul>
-                        <li><a href="/">{ pageTitle }</a></li>
-                        <li><a href="generic.html">Generic</a></li>
+                        <li><Link to="/">{pageTitle}</Link></li>
+                        <li><Link to="/generic">{postTitle}</Link></li>
                         <li><a href="elements.html">Elements</a></li>
                     </ul>
                 </nav>

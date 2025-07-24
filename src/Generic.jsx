@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client';
 import React, { StrictMode } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
-const Generic = ({postPageTitle, featuredImage, postPageContent}) => {
+const Generic = ({postPageTitle, featuredImageUrlForPost, postPageContent}) => {
     return (
     <>
         {/* Main content */}
