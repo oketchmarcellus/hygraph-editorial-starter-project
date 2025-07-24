@@ -20,7 +20,7 @@ const Sidebar = ({ pageTitle, creatorName })=> {
                         <h2>Menu</h2>
                     </header>
                     <ul>
-                        <li><a href="index.html">{ pageTitle }</a></li>
+                        <li><a href="/">{ pageTitle }</a></li>
                         <li><a href="generic.html">Generic</a></li>
                         <li><a href="elements.html">Elements</a></li>
                         <li>
