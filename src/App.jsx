@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useQuery, gql } from '@apollo/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Landing from './Landing';
 import Sidebar from './Sidebar';
-import Postpage from './Postpage';
+import Generic from './Generic';
 import './App.css'
 
 
@@ -97,16 +98,34 @@ function App() {
   // You can now use these variables in your components or pass them as props  
 
   return (
-    <>
-			<div id="wrapper">
-          <Landing pageTitle={pageTitle} creatorName={creatorName} featureImageUrl={featureImageUrl} 
-          featureContent={featureContent} serviceSection={serviceSection} serviceSectionTitle={serviceSectionTitle} 
-          services={services} featuredblogsectiontitle={featuredblogsectiontitle} featuredBlogPosts={featuredBlogPosts} />
-          <Sidebar  pageTitle={pageTitle} />
-          {/* <Postpage postPageTitle={postPageTitle} featuredImage={featuredImage} postPageContent={postPageContent} /> */}
-      </div>
-    </>
-  )
+          <Router>
+            <div id="wrapper">
+              <Routes>
+                <Route path="/" element={
+                    <>
+                      <Landing
+                        pageTitle={pageTitle}
+                        creatorName={creatorName}
+                        featureImageUrl={featureImageUrl}
+                        featureContent={featureContent}
+                        serviceSection={serviceSection}
+                        serviceSectionTitle={serviceSectionTitle}
+                        services={services}
+                        featuredblogsectiontitle={featuredblogsectiontitle}
+                        featuredBlogPosts={featuredBlogPosts}
+                      />
+                    </>
+                  }
+                />
+                <Route path="/about" element={<Generic />} />
+                {/* You can add more routes here if needed */}
+              </Routes>
+              <Sidebar pageTitle={pageTitle} />
+            </div>
+          </Router>
+        )
 }
 
 export default App
+
+
