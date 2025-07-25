@@ -23,7 +23,7 @@ const Sidebar = ({ pageTitle, creatorName, postTitle })=> {
                     <ul>
                         <li><Link to="/">{pageTitle}</Link></li>
                         <li><Link to="/generic">{postTitle}</Link></li>
-                        <li><a href="elements.html">Elements</a></li>
+                        <li><a href="/elements">Elements</a></li>
                     </ul>
                 </nav>
                 {/* <!-- Section --> */}
