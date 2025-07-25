@@ -8,7 +8,6 @@ import Generic from './Generic'
 import Elements from './Elements'
 import './App.css'
 
-
 const GET_DATA = gql`
   query findPage($homepageSlug: String, $postSlug: String) {
     homepage(where: {slug: $homepageSlug}) {
@@ -79,7 +78,7 @@ function App() {
     variables: { homepageSlug: 'home', postSlug: 'generic' }, // Replace 'home' with the actual slug you want to query
   });
 
-  // Fetch data from the NEWS.org REST API
+  // Fetch data specific from the NEWS.org REST API
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {

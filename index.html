@@ -7,17 +7,20 @@
 <html lang="en">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/main.css" /> -->
     <title>HygraphQL ReactEditorial Starter project</title>
   </head>
   <body class="is-preload">
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <!-- Scripts -->
-    <script src="/src/assets/js/jquery.min.js"></script>
-    <script src="/src/assets/js/browser.min.js"></script>
-    <script src="/src/assets/js/breakpoints.min.js"></script>
-    <script src="/src/assets/js/util.js"></script>
-    <script src="/src/assets/js/main.js"></script>
+    <!-- Include jQuery -->
+    <script type="module" src="/src/assets/js/jquery.min.js"></script>
+    
+    <!-- Include other scripts -->
+    <script type="module" src="/src/assets/js/browser.min.js"></script>
+    <script type="module" src="/src/assets/js/breakpoints.min.js"></script>
+    <script type="module" src="/src/assets/js/util.js"></script>
+    <script type="module" src="/src/assets/js/main.js"></script>
+    
+    <script type="module" src="/src/main.jsx"></script> <!-- Your main React entry point -->
   </body>
 </html>
