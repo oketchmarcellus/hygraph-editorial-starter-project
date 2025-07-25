@@ -9,12 +9,13 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          // Separate libraries into their own chunks
+          // Separate libraries into their own chunks so that they don't bloat the main bundle
+          //First chunk: All node_modules will go to vendor.js
           if (id.includes('node_modules')) {
-            return 'vendor'; // All node_modules will go to vendor.js
+            return 'vendor'; 
           }
           
-          // Example: Separate your assets into another chunk
+          //second chunk: All assets will go to assets.js
           if (id.includes('/src/assets/js/')) {
             return 'assets'; // All assets will go to assets.js
           }
