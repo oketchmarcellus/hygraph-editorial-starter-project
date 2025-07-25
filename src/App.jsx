@@ -87,7 +87,12 @@ function App() {
       try {
         const response = await fetch(import.meta.env.VITE_NEWS_DOT_ORG_REST_API_URL);
         const json = await response.json();
-        setArticles(json.articles.slice(0, 3)); // Get the first 3 articles
+        console.log(json); // Log the response
+        if (json.articles) {
+            setArticles(json.articles.slice(0, 3)); // Get the first 3 articles
+        } else {
+            console.error('Articles not found in response:', json);
+        }
       } catch (error) {
         console.error('Error fetching articles:', error);
       }
