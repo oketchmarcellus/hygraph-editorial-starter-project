@@ -37,6 +37,7 @@ const Sidebar = ({ pageTitle, creatorName, postTitle, articles })=> {
                             <a href={article.link} className="image" target="_blank" rel="noopener noreferrer">
                                 <img src={article.image_url} alt={article.title} />
                             </a>
+                            <h3>{article.title}</h3>
                             <p>{article.description}</p>
                             <ul class="actions">
                                 <li><a href={article.link} class="button">More</a></li>
