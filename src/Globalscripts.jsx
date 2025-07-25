@@ -13,7 +13,7 @@ const GlobalScripts = () => {
 
     scripts.forEach(src => {
       const script = document.createElement("script");
-      script.src = `${process.env.PUBLIC_URL}/${src}`;
+      script.src = `${process.env.VITE_PUBLIC_URL}/${src}`;
       script.async = true;
       document.body.appendChild(script);
 
