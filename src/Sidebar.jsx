@@ -34,8 +34,8 @@ const Sidebar = ({ pageTitle, creatorName, postTitle, articles })=> {
                     <div className="mini-posts">
                         {articles.map((article, index) => (
                         <article key={index}>
-                            <a href={article.url} className="image" target="_blank" rel="noopener noreferrer">
-                                <img src={article.urlToImage} alt={article.title} />
+                            <a href={article.link} className="image" target="_blank" rel="noopener noreferrer">
+                                <img src={article.image_url} alt={article.title} />
                             </a>
                             <p>{article.description}</p>
                         </article>

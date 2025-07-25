@@ -88,8 +88,8 @@ function App() {
         const response = await fetch(import.meta.env.VITE_NEWS_DOT_ORG_REST_API_URL);
         const json = await response.json();
         console.log(json); // Log the response
-        if (json && json.articles) {
-          setArticles(json.articles.slice(0, 3)); // Only attempt to slice if articles exist
+        if (json && json.results) {
+          setArticles(json.results.slice(0, 3)); // Only attempt to slice if articles exist
         } else {
             console.error('No articles found or unexpected response format:', json);
         }
