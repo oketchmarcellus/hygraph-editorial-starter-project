@@ -40,7 +40,7 @@ const Sidebar = ({ pageTitle, creatorName, postTitle, articles })=> {
                             <h3>{article.title}</h3>
                             <p>{article.description}</p>
                             <ul class="actions">
-                                <li><a href={article.link} class="button">More</a></li>
+                                <li><a href={article.link} className="button">More</a></li>
                             </ul>
                         </article>
                         ))}
