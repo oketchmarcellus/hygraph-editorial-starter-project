@@ -12,7 +12,7 @@ const client = new ApolloClient({
 
 //Fetch data from the NEWS.org REST API
 async function fetchFromRestAPI() {
-  const response = await fetch(import.meta.env.VITE_NEWS_DOT_ORG_REST_API_URL, {
+  const response = await fetch(import.meta.env.VITE_NEWSDATA_DOT_IO_REST_API_URL, {
     method: 'GET', // or 'POST', depending on your API
     headers: {
       'Content-Type': 'application/json',

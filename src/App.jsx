@@ -85,7 +85,7 @@ function App() {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch(import.meta.env.VITE_NEWS_DOT_ORG_REST_API_URL);
+        const response = await fetch(import.meta.env.VITE_NEWSDATA_DOT_IO_REST_API_URL);
         const json = await response.json();
         console.log(json); // Log the response
         if (json && json.results) {

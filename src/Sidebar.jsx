@@ -29,7 +29,7 @@ const Sidebar = ({ pageTitle, creatorName, postTitle, articles })=> {
                  {/* News Widget Section */}
                 <section>
                     <header className="major">
-                        <h2>Latest News From News.org Network</h2>
+                        <h2>Latest News From Newsdata.io Network</h2>
                     </header>
                     <div className="mini-posts">
                         {articles.map((article, index) => (
@@ -38,6 +38,9 @@ const Sidebar = ({ pageTitle, creatorName, postTitle, articles })=> {
                                 <img src={article.image_url} alt={article.title} />
                             </a>
                             <p>{article.description}</p>
+                            <ul class="actions">
+                                <li><a href={article.link} class="button">More</a></li>
+                            </ul>
                         </article>
                         ))}
                     </div>
