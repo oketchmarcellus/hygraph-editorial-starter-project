@@ -1,9 +1,9 @@
-import React, { StrictMode } from 'react';
+import React, { StrictMode, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Link, NavLink } from 'react-router-dom';
 
-const Sidebar = ({ pageTitle, creatorName, postTitle })=> {
+const Sidebar = ({ pageTitle, creatorName, postTitle, articles })=> {
     return (
     <>
         {/* <!-- Sidebar --> */}
@@ -26,31 +26,23 @@ const Sidebar = ({ pageTitle, creatorName, postTitle })=> {
                         <li><a href="/elements">Elements</a></li>
                     </ul>
                 </nav>
-                {/* <!-- Section --> */}
+                 {/* News Widget Section */}
                 <section>
                     <header className="major">
-                        <h2>Ante interdum</h2>
+                        <h2>Latest News From News.org Network</h2>
                     </header>
                     <div className="mini-posts">
-                        <article>
-                            <a href="#" className="image"><img src="images/pic07.jpg" alt="" /></a>
-                            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                        {articles.map((article, index) => (
+                        <article key={index}>
+                            <a href={article.url} className="image" target="_blank" rel="noopener noreferrer">
+                                <img src={article.urlToImage} alt={article.title} />
+                            </a>
+                            <p>{article.description}</p>
                         </article>
-                        <article>
-                            <a href="#" className="image"><img src="images/pic08.jpg" alt="" /></a>
-                            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-                        </article>
-                        <article>
-                            <a href="#" className="image"><img src="images/pic09.jpg" alt="" /></a>
-                            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-                        </article>
+                        ))}
                     </div>
-                    <ul className="actions">
-                        <li><a href="#" className="button">More</a></li>
-                    </ul>
                 </section>
-
-                {/* <!-- Section --> */}
+                {/* <!-- Get in touch Section --> */}
                 <section>
                     <header className="major">
                         <h2>Get in touch</h2>

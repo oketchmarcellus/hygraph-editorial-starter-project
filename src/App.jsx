@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { StrictMode, useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Header from './Header'
@@ -79,6 +79,22 @@ function App() {
     variables: { homepageSlug: 'home', postSlug: 'generic' }, // Replace 'home' with the actual slug you want to query
   });
 
+  // Fetch data from the NEWS.org REST API
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch(import.meta.env.VITE_NEWS_DOT_ORG_REST_API_URL);
+        const json = await response.json();
+        setArticles(json.articles.slice(0, 3)); // Get the first 3 articles
+      } catch (error) {
+        console.error('Error fetching articles:', error);
+      }
+    };
+    fetchArticles();
+  }, []);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
@@ -145,7 +161,7 @@ function App() {
                     </Routes>
                 </div>
               </div>
-              <Sidebar pageTitle={pageTitle} postTitle={postTitle}/>   
+              <Sidebar pageTitle={pageTitle} postTitle={postTitle} articles={articles}/>   
             </div>
           </Router>
         )
