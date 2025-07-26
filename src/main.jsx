@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import './index.css'
 import App from './App.jsx'
-import GlobalScripts from './Globalscripts.jsx'
 
 // Create Apollo client with Vite environment variable
 const client = new ApolloClient({

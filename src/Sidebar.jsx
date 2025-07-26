@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Link, NavLink } from 'react-router-dom';
 
-const Sidebar = ({ pageTitle, creatorName, postTitle, articles })=> {
+const Sidebar = ({ pageTitle, postTitle, articles, navItems })=> {
     return (
     <>
         {/* <!-- Sidebar --> */}
@@ -23,7 +23,9 @@ const Sidebar = ({ pageTitle, creatorName, postTitle, articles })=> {
                     <ul>
                         <li><Link to="/">{pageTitle}</Link></li>
                         <li><Link to="/generic">{postTitle}</Link></li>
-                        <li><a href="/elements">Elements</a></li>
+                        {navItems.map(item => (
+                        <li key={item.id}><Link to={item.slug}>{item.label}</Link></li>
+                        ))}
                     </ul>
                 </nav>
                  {/* News Widget Section */}

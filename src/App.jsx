@@ -1,6 +1,6 @@
 import React, { StrictMode, useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom'
 import Header from './Header'
 import Landing from './Landing'
 import Sidebar from './Sidebar'
@@ -9,8 +9,8 @@ import Elements from './Elements'
 import './App.css'
 
 const GET_DATA = gql`
-  query findPage($homepageSlug: String, $postSlug: String) {
-    homepage(where: {slug: $homepageSlug}) {
+  query myoperation($homepageSlug: String, $postSlug: String, $navId: String) {
+    homepage(where: { slug: $homepageSlug }) {
       id
       slug
       pageTitle
@@ -58,7 +58,7 @@ const GET_DATA = gql`
         }
       }
     }
-    postPage(where: {slug: $postSlug}) {
+    postPage(where: { slug: $postSlug }) {
       id
       postTitle
       slug
@@ -69,16 +69,30 @@ const GET_DATA = gql`
         url
       }
     }
+    navigation(where: { navigationId: $navId }) {
+      id
+      navigationLinks {
+        id
+        label
+        slug
+      }
+    }
   }
 `;
 
 function App() {
-  // Use the useQuery hook to fetch data from the HygraphQL endpoint
+  // Set your navigation ID
+  const navId = 'main-nav'; 
+  // Set your homepage slug
+  const homepageSlug = 'home';
+  //Set the post slug for the generic page
+  const { postSlug = 'generic' } = useParams(); // Extract postSlug from route parameters or default to 'generic'
+  // Provide default values to initiate the query
   const { loading, error, data } = useQuery(GET_DATA, {
-    variables: { homepageSlug: 'home', postSlug: 'generic' }, // Replace 'home' with the actual slug you want to query
+    variables: { homepageSlug, navId, postSlug }, 
   });
 
-  // Fetch data specific from the NEWS.org REST API
+  // Also Fetch data specific from the NEWS.org REST API since we cannot federate on our HygraphQL plan
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -119,8 +133,11 @@ function App() {
   const postPageContent = data.postPage.postPageContent.html; // Get the post page content
   const featuredImageUrlForPost = data.postPage.featuredImage.url; // Get the featured image URL for the post page
 
-  // You can now use these variables in your components or pass them as props  
 
+  // Fetch the navigation items
+  const navItems = data.navigation.navigationLinks?.slice(0, 5); // Get the first 5 nav items
+
+  // You can now use these variables in your components or pass them as props  
   return (
           <Router>
             <div id="wrapper">
@@ -145,7 +162,7 @@ function App() {
                           </>
                         }
                       />
-                      <Route path="/generic" element={
+                      <Route path="/:postSlug" element={
                         <Generic 
                         postPageTitle={postPageTitle}
                         featuredImageUrlForPost={featuredImageUrlForPost}
@@ -165,7 +182,7 @@ function App() {
                     </Routes>
                 </div>
               </div>
-              <Sidebar pageTitle={pageTitle} postTitle={postTitle} articles={articles}/>   
+              <Sidebar pageTitle={pageTitle} postTitle={postTitle} articles={articles} navItems={navItems}/>   
             </div>
           </Router>
         )
