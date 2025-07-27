@@ -17,6 +17,6 @@
     -webkit-box-orient: vertical;
     line-clamp: 6; /* Number of lines to show */
     overflow: clip;
-    max-height: 4.5em; /* Adjust based on the line height */
+    max-height: 9em; /* Adjust based on the line height */
     line-height: 1.5em; /* Set your desired line height */
 }
