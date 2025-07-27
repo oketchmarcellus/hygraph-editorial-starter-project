@@ -10,7 +10,7 @@ const Landing = ({ pageTitle, creatorName, featureImageUrl, featureContent, serv
             <div className="content">
                 <div dangerouslySetInnerHTML={{ __html: featureContent }} />
                 <ul className="actions">
-                    <li><a href="#" className="button big">Learn More</a></li>
+                    <li><a href="./aenean-ornare-velit" className="button big">Learn More</a></li>
                 </ul>
             </div>
             <span className="image object">
