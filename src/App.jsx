@@ -118,21 +118,16 @@ function App() {
 
   const pageTitle = data.homepage.pageTitle;// Get the page title from the query result
   const creatorName = data.homepage.createdBy.name; // Get the creator's name from the query result
-  const featureSection = data.homepage.featureSection; // Get the feature section content
+  //const featureSection = data.homepage.featureSection; // Get the feature section content
   const featureContent = data.homepage.featureSection.featuredPostContent.html; // Get the HTML content of the feature section
   const featureImageUrl = data.homepage.featureSection.featurePostImage.url; // Get the feature image URL
   const serviceSection = data.homepage.serviceSection; // Get the service section content
   const serviceSectionTitle = data.homepage.serviceSection.sectionTitle; // Get the service section title
   const services = data.homepage.serviceSection.sectionContents; // Get the service items
   const featuredblogsectiontitle = data.homepage.featuredBlogPostSection.sectionTitle; // Get the featured blog post section title
-  const featuredBlogPostSection = data.homepage.featuredBlogPostSection; // Get the featured blog post section content
+  //const featuredBlogPostSection = data.homepage.featuredBlogPostSection; // Get the featured blog post section content
   const featuredBlogPosts = data.homepage.featuredBlogPostSection.sectionContents; // Get the featured blog posts
-  const postPageTitle = data.postPage.postTitle; // Get the post page title
-  const featuredImage = data.postPage.featuredImage; // Get the featured image for the post page
   const postTitle = data.postPage.postTitle; // Get the post title for the generic page
-  const postPageContent = data.postPage.postPageContent.html; // Get the post page content
-  const featuredImageUrlForPost = data.postPage.featuredImage.url; // Get the featured image URL for the post page
-
 
   // Fetch the navigation items
   const navItems = data.navigation.navigationLinks?.slice(0, 5); // Get the first 5 nav items
@@ -163,22 +158,18 @@ function App() {
                         }
                       />
                       <Route path="/:postSlug" element={
-                        <Generic 
-                        postPageTitle={postPageTitle}
-                        featuredImageUrlForPost={featuredImageUrlForPost}
-                        postPageContent={postPageContent}
-                        />
+                        <Generic />
                         }
                       />
                       {/* You can add more routes here if needed */}
-                      <Route path="/elements" element={
+                      {/* <Route path="/elements" element={
                         <Elements 
                           postPageTitle={postPageTitle}
                           featuredImageUrlForPost={featuredImageUrlForPost}
                           postPageContent={postPageContent} 
                           />
                         }
-                        />  
+                        />   */}
                     </Routes>
                 </div>
               </div>

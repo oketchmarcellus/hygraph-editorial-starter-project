@@ -1,11 +1,39 @@
-import ReactDOM from 'react-dom/client';
-import React, { StrictMode } from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useQuery, gql } from '@apollo/client';
+import { useParams } from 'react-router-dom';
 
-const Generic = ({postPageTitle, featuredImageUrlForPost, postPageContent}) => {
-    const { postSlug = 'generic' } = useParams(); // Extract postSlug from the URL
+const GET_POST_DATA = gql`
+  query myoperation($postSlug: String) {
+    postPage(where: { slug: $postSlug }) {
+      id
+      postTitle
+      slug
+      postPageContent {
+        html
+      }
+      featuredImage {
+        url
+      }
+    }
+  }
+`;
+
+const Generic = () => {
+    const { postSlug = 'generic' } = useParams(); // Get postSlug from URL
+    const { loading, error, data } = useQuery(GET_POST_DATA, {
+        variables: { postSlug },
+    });
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
+    
     console.log('Current postSlug in Generic:', postSlug); // Log the postSlug
+    console.log('Data in Generic:', data); // Log the data passed to Generic
+    const postPageTitle = data.postPage?.postTitle; // Get the post title for the generic page
+    const postPageContent = data.postPage?.postPageContent.html; // Get the post page content
+    const featuredImageUrlForPost = data.postPage.featuredImage.url; // Get the featured image URL for the post page
+    
+    console.log( postPageTitle, postPageContent, featuredImageUrlForPost); // Log the post details
     return (
     <>
         {/* <!-- Content --> */}
