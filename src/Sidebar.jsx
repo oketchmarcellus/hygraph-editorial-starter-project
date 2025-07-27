@@ -67,6 +67,7 @@ const Sidebar = ({ pageTitle, postTitle, articles, navItems })=> {
                     <p className="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. TechStack: <a href="https://viteapolloclientgraphqlstarterproject.netlify.app/">Vite+Hygraph+React+Apollo Client</a>. Fork Starter Project: <a href="https://github.com/oketchmarcellus/hygraph-editorial-starter-project">Github</a>.</p>
                 </footer>
             </div>
+            <a href="#sidebar" className="toggle">Toggle</a>
         </div>
     </>
     );

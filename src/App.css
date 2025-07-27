@@ -3,3 +3,11 @@
 @import './assets/css/fontawesome-all.min.css';
 
 /* Global styles */
+
+/* div#sidebar{
+    overflow-x: hidden !important;
+    height: fit-content !important;
+    position: fixed !important;
+    top: 0px !important;;
+} */
+
