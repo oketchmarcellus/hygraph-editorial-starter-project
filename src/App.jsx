@@ -1,4 +1,4 @@
-import React, { StrictMode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client'
 import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom'
 import Header from './Header'
