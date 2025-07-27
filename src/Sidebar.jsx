@@ -4,10 +4,17 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Link, NavLink } from 'react-router-dom';
 
 const Sidebar = ({ pageTitle, postTitle, articles, navItems })=> {
+    //code for toggling sidebar visibility
+    const [isActive, setIsActive] = useState(false);
+
+    const toggleSidebar = (e) => {
+        e.preventDefault();
+        setIsActive(!isActive);
+    };
     return (
     <>
         {/* <!-- Sidebar --> */}
-        <div id="sidebar">
+        <div id="sidebar" className={isActive ? 'inactive' : 'active'}>
             <div className="inner">
                 {/* <!-- Search --> */}
                 <section id="search" className="alt">
@@ -67,7 +74,7 @@ const Sidebar = ({ pageTitle, postTitle, articles, navItems })=> {
                     <p className="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. TechStack: <a href="https://viteapolloclientgraphqlstarterproject.netlify.app/">Vite+Hygraph+React+Apollo Client</a>. Fork Starter Project: <a href="https://github.com/oketchmarcellus/hygraph-editorial-starter-project">Github</a>.</p>
                 </footer>
             </div>
-            <a href="#sidebar" className="toggle">Toggle</a>
+            <a href="#sidebar" className="toggle" onClick={toggleSidebar}>Toggle</a>
         </div>
     </>
     );
