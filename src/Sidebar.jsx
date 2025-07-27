@@ -1,7 +1,5 @@
 import React, { StrictMode, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Sidebar = ({ pageTitle, postTitle, articles, navItems })=> {
     //code for toggling sidebar visibility
@@ -47,7 +45,7 @@ const Sidebar = ({ pageTitle, postTitle, articles, navItems })=> {
                                 <img src={article.image_url} alt={article.title} />
                             </a>
                             <h3>{article.title}</h3>
-                            <p>{article.description}</p>
+                            <p className='mini-excerpt'>{article.description}</p>
                             <ul className="actions">
                                 <li><a href={article.link} className="button">More</a></li>
                             </ul>
