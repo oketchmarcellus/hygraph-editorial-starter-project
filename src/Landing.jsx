@@ -1,8 +1,5 @@
-import ReactDOM from 'react-dom/client';
-import React, { StrictMode } from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
-const Landing = ({ pageTitle, creatorName, featureImageUrl, featureContent, serviceSectionTitle, services, featuredblogsectiontitle, featuredBlogPosts }) => {
+const Landing = ({ featureImageUrl, featureContent, serviceSectionTitle, services, featuredblogsectiontitle, featuredBlogPosts }) => {
     return (
     <>
         {/* <!-- Banner --> */}

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 
@@ -27,13 +26,13 @@ const Generic = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
     
-    console.log('Current postSlug in Generic:', postSlug); // Log the postSlug
-    console.log('Data in Generic:', data); // Log the data passed to Generic
+    //console.log('Current postSlug in Generic:', postSlug); // Log the postSlug
+    //console.log('Data in Generic:', data); // Log the data passed to Generic
     const postPageTitle = data.postPage?.postTitle; // Get the post title for the generic page
     const postPageContent = data.postPage?.postPageContent.html; // Get the post page content
     const featuredImageUrlForPost = data.postPage.featuredImage.url; // Get the featured image URL for the post page
     
-    console.log( postPageTitle, postPageContent, featuredImageUrlForPost); // Log the post details
+    //console.log( postPageTitle, postPageContent, featuredImageUrlForPost); // Log the post details
     return (
     <>
         {/* <!-- Content --> */}

@@ -1,8 +1,5 @@
-import ReactDOM from 'react-dom/client';
-import React, { StrictMode } from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
-const Header = ({ pageTitle, creatorName, postTitle }) => {
+const Header = ({ creatorName }) => {
     return (
     <>
        {/* <!-- Header --> */}

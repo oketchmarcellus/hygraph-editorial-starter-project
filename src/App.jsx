@@ -5,7 +5,6 @@ import Header from './Header'
 import Landing from './Landing'
 import Sidebar from './Sidebar'
 import Generic from './Generic'
-import Elements from './Elements'
 import './App.css'
 
 const GET_DATA = gql`
@@ -161,15 +160,6 @@ function App() {
                         <Generic />
                         }
                       />
-                      {/* You can add more routes here if needed */}
-                      {/* <Route path="/elements" element={
-                        <Elements 
-                          postPageTitle={postPageTitle}
-                          featuredImageUrlForPost={featuredImageUrlForPost}
-                          postPageContent={postPageContent} 
-                          />
-                        }
-                        />   */}
                     </Routes>
                 </div>
               </div>
